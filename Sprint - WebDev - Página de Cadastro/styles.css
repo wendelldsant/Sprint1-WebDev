@@ -98,9 +98,3 @@ button:active {
     transform: scale(1);
 
 }
-
-#error-message{
-  color: red;
-  font-size: 12px;
-  
-}
