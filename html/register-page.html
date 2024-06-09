@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="/css/styles-register.css">
+</head>
+<body>
+    <header>
+        <h1>BeOcean</h1>
+        <nav>
+            <ul id="secoes">
+                <li><a href="index.html">Sobre nós</a></li>
+                <li><a href="events.html">Eventos</a></li>
+                <li><a href="register_page.html">Login</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h3>Selecione uma opção</h3>
+        <form id="registration-form">
+            <div class="form-group" id="campo1">
+                <label for="username">ID de Usuário</label>
+                <input type="text" id="username" name="username">
+                <div id="error-message-username"></div>
+            </div>
+            <div class="form-group" id="campo2">
+                <label for="name">Nome</label>  
+                <input type="text" id="name" name="name">
+                <div id="error-message-name"></div>
+            </div>
+            <div class="form-group" id="campo3">
+                <label for="address">Região</label>
+                <select id="regiao" name="regiao">
+                    <option value="">Selecione</option>
+                    <option id="sudeste">Sudeste</option>
+                    <option id="centro-oeste">Centro-Oeste</option>
+                    <option id="norte">Norte</option>
+                    <option id="nordeste">Nordeste</option>
+                    <option id="sul">Sul</option>
+                </select>
+                <div id="error-message-regiao"></div>
+            </div>
+            <div class="form-group" id="campo4">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <div id = "error-message-email"></div>
+            </div>
+            <div class="form-group" id="campo5">
+                <label for="phone" id="phone-title">Celular</label>
+                <input type="number" id="phone" name="phone">
+                <div id = "error-message-phone"></div>
+            </div>
+            <div class="form-group" id="campo6">
+                <label for="profile-pic">Foto de Perfil (URL)</label>
+                <input type="url" id="profile-pic" name="profile-pic" accept="image/*">
+                <div id="error-message-foto"></div>
+            </div>
+            <div class="form-group" id="campo7">
+                <label for="password">Senha</label>
+                <input type="text" id="password" name="password">
+                <div id="error-message-password"></div>
+            </div>
+
+            <div class="form-group" id="campo8">
+                <label for="password">Confirmar senha</label>
+                <input type="text" id="password-confirm" name="password-confirm">
+                <div id="error-message-password-confirm"></div>
+            </div>
+            <div class="form-group" id="campo9">
+                <label for="dob" id="birthday-title">Data de Nascimento</label>
+                <input type="date" id="birthday" name="birthday">
+                <div id="error-message-birthday"></div>
+            </div>
+            <div class="form-group" id="campo10">
+                <label for="gender">Gênero</label>
+                <select id="gender" name="gender">
+                    <option value="">Selecione</option>
+                    <option value="male">Masculino</option>
+                    <option value="female">Feminino</option>
+                    <option value="other">Outro</option>
+                </select>
+                <div id="error-message-gender"></div>
+            </div>
+        </form>
+        <div id="buttons">
+            <div class="button-container">
+                <button type="submit" id="btn-login">Login</button>
+            </div>
+            <div class="button-container">
+                <button type="submit" id="btnCadastreSe">Cadastre-se</button>
+            </div>
+
+        </div>
+        <button type="submit" id="btn-cadastrar">Cadastrar</button>
+    </div>
+    <script src="/script/script-register.js"></script>
+</body>
+</html>
