@@ -122,7 +122,7 @@ function verificaUsername(){
 
 //função para verificar se username ja existe no localStorage
 function verificaUsernameExistente(username){
-    if(lista_user.some(user => user.username === username)){
+    if(lista_users.some(user => user.username === username)){
         verificaElementos(true, username_id, error_msg_username, 'Este ID de usuário já está em uso');
         return true;
     }
@@ -232,12 +232,12 @@ function verificaFoto(){
 
 //funcao para verificar se o login é de voluntario. pega informações do user e vefica na lista voluntarios
 function verificaLoginExistente(){
-    return lista_user.some(user => user.username === username_id.value);
+    return lista_users.some(user => user.username === username_id.value);
 }
 
 //validacao se a senha bate com o username
 function verificarSenhaxLogin(){
-    for (let user of lista_user) {
+    for (let user of lista_users) {
         if (user.username === username_id.value) {
             return user.senha;
         }
@@ -245,18 +245,14 @@ function verificarSenhaxLogin(){
     return ''; 
 }
 // ############################ VALIDAÇÃO ############################
-// var login_check = JSON.parse(localStorage.getItem('login_check'));
-// localStorage.setItem('login_check', JSON.stringify(login_check));
-// let lista_voluntarios = [];
-// let lista_empresas = [];
+var login_check = JSON.parse(localStorage.getItem('login_check'));
+localStorage.setItem('login_check', JSON.stringify(login_check));
+let lista_users = [];
 
-// // Carregar dados do localStorage
-// if (localStorage.getItem('voluntarios_users')) {
-//     lista_voluntarios = JSON.parse(localStorage.getItem('voluntarios_users'));
-// }
-// if (localStorage.getItem('empresas_users')) {
-//     lista_empresas = JSON.parse(localStorage.getItem('empresas_users'));
-// }
+// Carregar dados do localStorage
+if (localStorage.getItem('lista_users')) {
+    lista_users = JSON.parse(localStorage.getItem('lista_users'));
+}
 
 const register_form = document.getElementById('registration-form');
 const btnlogin_in = document.getElementById('btn-login');
@@ -320,39 +316,17 @@ btnlogin_in.addEventListener('click', function(event){
 btncadastrar_se.addEventListener('click', function(event){
     event.preventDefault();
     register_form.style.display = 'none';
-    const btn_voluntario_register = document.getElementById('btn-volunteer');
-    const btn_empresa_register = document.getElementById('btn-empresa');
-    const btnSubmitCadastro = document.getElementById("btn-cadastrar");
-
-    btn_voluntario_register.addEventListener('click', function(event){
-        event.preventDefault();
-        register_form.style.display = 'block';
-        btn_voluntario_register.style.display = 'none';
-        btn_empresa_register.style.display = 'none';
-        btnSubmitCadastro.style.display = 'block';
-        let title = document.querySelector('h3');
-        title.innerHTML = 'Cadastro de Voluntário'; 
-        profileType = 'voluntario'  //definicao do tipo de profile
-    });
-
-    btn_empresa_register.addEventListener('click', function(event){
-        event.preventDefault();
-        register_form.style.display = 'block';
-        btn_empresa_register.style.display = 'none';
-        btn_voluntario_register.style.display = 'none';
-        btnSubmitCadastro.style.display = 'block';
-        let title = document.querySelector('h3');
-        title.innerHTML = 'Cadastro de Empresa';
-        document.querySelector('#campo9').style.display = 'none';
-        document.querySelector('#campo10').style.display = 'none';
-        profileType = 'empresa'  //definicao do tipo de profile  
-    });
+    let btnSubmitCadastro = document.getElementById("btn-cadastrar");
+    event.preventDefault();
+    register_form.style.display = 'block';
+    btnSubmitCadastro.style.display = 'block';
+    let title = document.querySelector('h3');
+    title.innerHTML = 'Cadastro de Usuário'; 
 })
 
 ///verificação dos campos de informações
 btn_cadastrar.addEventListener('click', function(event){
     event.preventDefault();
-    if(profileType === 'voluntario'){
     profile_username = verificaUsername();
     profile_name = verificaName();
     profile_senha = verificaSenha();
@@ -378,7 +352,7 @@ btn_cadastrar.addEventListener('click', function(event){
             foto: foto_id.value,
             profileType: 'voluntario'
         }
-        lista_voluntarios.push(new_user);  //guardou na lista de usuarios
+        lista_users.push(new_user);  //guardou na lista de usuarios
         let container = document.querySelector('.container')
         container.innerHTML = ''
         container.innerHTML = `
@@ -398,54 +372,10 @@ btn_cadastrar.addEventListener('click', function(event){
         }
         login_check = user_online; //login_check usado para saber se um usuario esta logado
         localStorage.setItem('login_check', JSON.stringify(login_check)); //guardando informaçoes do login check
-        localStorage.setItem('voluntarios_users', JSON.stringify(lista_voluntarios)); //guardando informaçoes dos voluntarios
+        localStorage.setItem('lista_users', JSON.stringify(lista_users)); //guardando informaçoes dos voluntarios
         };
 
     }
-    else{
-        profile_username = verificaUsername();
-        profile_name = verificaName();
-        profile_senha = verificaSenha();
-        profile_regiao = verificaOpcoes(regiao_id, error_msg_regiao);   
-        profile_email = verificaEmail();
-        profile_foto = verificaFoto();
-        if(profile_username && profile_name && profile_senha &&
-            profile_regiao && profile_email && profile_foto
-        ){
-            const new_user = {
-                username: username_id.value,
-                name: name_id.value,
-                senha: senha_id.value,
-                regiao: regiao_id.value,
-                email: email_id.value,
-                celular: celular_id.value,
-                foto: foto_id.value,
-                profileType: 'empresa'
-            }
-            lista_empresas.push(new_user); //guardou na lista de empresas
-            let container = document.querySelector('.container')
-            container.innerHTML = ''
-            container.innerHTML = `
-            <div class="container">
-            <h3>Cadastro realizado!</h3>
-                <div class="button-container">
-                    <button type="submit"><a href="index.html" style = "text-decoration: none; color: #ffffff">Página Inicial - Sobre nós</button>
-                </div>
-                <div class="button-container">
-                    <button type="submit"><a href="events.html" style = "text-decoration: none; color: #ffffff">Crie Eventos!</a></button>
-                </div>
-            </div>
-            `
-            let user_online = {
-                username: username_id.value,
-                senha: senha_id.value,
-            }
-            login_check = user_online;
-            localStorage.setItem('login_check', JSON.stringify(login_check));
-            localStorage.setItem('empresas_users', JSON.stringify(lista_empresas));
-            };
-    }
-}
  )
 
 
