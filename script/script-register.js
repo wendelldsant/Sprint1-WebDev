@@ -15,6 +15,8 @@ const error_msg_gender = document.getElementById('error-message-gender');
 const error_msg_birthday = document.getElementById('error-message-birthday');
 const error_msg_foto = document.getElementById('error-message-foto');
 // ############################# ID'S ##############################
+const btn_login = document.getElementById('btn-login');
+const btn_cadastreSe = document.getElementById('btnCadastreSe');
 const name_id = document.getElementById('name');
 const username_id = document.getElementById('username');
 const senha_id = document.getElementById('password');
@@ -244,6 +246,10 @@ function verificarSenhaxLogin(){
     }
     return ''; 
 }
+
+function voltarLoginPage(){
+    window.location.href = "register-page.html"
+}
 // ############################ VALIDAÇÃO ############################
 var login_check = JSON.parse(localStorage.getItem('login_check'));
 localStorage.setItem('login_check', JSON.stringify(login_check));
@@ -257,11 +263,13 @@ if (localStorage.getItem('lista_users')) {
 const register_form = document.getElementById('registration-form');
 const btnlogin_in = document.getElementById('btn-login');
 const btncadastrar_se = document.getElementById('btnCadastreSe');
+const btnVoltar = document.getElementById('btn-voltar');
 
 //ao clicar botao de login (fzr login)
 btnlogin_in.addEventListener('click', function(event){
     event.preventDefault();
     register_form.style.display = 'block';
+    btnVoltar.className = 'nothidden';
     let lista_block = [campo2,campo3,campo4,campo5,campo6,campo8,campo9,campo10];
     lista_block.forEach(campo =>{
         campo.style.display = 'none';
@@ -314,6 +322,12 @@ btnlogin_in.addEventListener('click', function(event){
 
 //ao clicar o botao de cadastre-se. definição do que vai ser mostrado na tela
 btncadastrar_se.addEventListener('click', function(event){
+    let voltar_btn = document.createElement('div');
+    btnVoltar.className = 'nothidden';
+    document.querySelector('.buttons');
+    document.querySelector('.buttons').append(voltar_btn) 
+    btn_login.style.display = 'none';
+    btn_cadastreSe.style.display = 'none'
     event.preventDefault();
     register_form.style.display = 'none';
     let btnSubmitCadastro = document.getElementById("btn-cadastrar");
@@ -321,61 +335,58 @@ btncadastrar_se.addEventListener('click', function(event){
     register_form.style.display = 'block';
     btnSubmitCadastro.style.display = 'block';
     let title = document.querySelector('h3');
-    title.innerHTML = 'Cadastro de Usuário'; 
+    title.innerHTML = 'Cadastro de Usuário';
+    ///verificação dos campos de informações
+    btn_cadastrar.addEventListener('click', function(event){
+        event.preventDefault();
+        profile_username = verificaUsername();
+        profile_name = verificaName();
+        profile_senha = verificaSenha();
+        profile_regiao = verificaOpcoes(regiao_id, error_msg_regiao);
+        profile_gender = verificaOpcoes(gender_id, error_msg_gender);    
+        profile_email = verificaEmail();
+        profile_celular = verificaCelular();
+        profile_birthday = verificaBirthday();
+        profile_foto = verificaFoto();
+        if(profile_username && profile_name && profile_senha &&
+            profile_regiao && profile_gender && profile_email &&
+            profile_celular && profile_foto
+        ){
+            const new_user = {
+                username: username_id.value,
+                name: name_id.value,
+                senha: senha_id.value,
+                regiao: regiao_id.value,
+                gender: gender_id.value,
+                email: email_id.value,
+                celular: celular_id.value,
+                birthday: birthday_id.value,
+                foto: foto_id.value,
+                profileType: 'voluntario'
+            }
+            lista_users.push(new_user);  //guardou na lista de usuarios
+            let container = document.querySelector('.container')
+            container.innerHTML = ''
+            container.innerHTML = `
+            <div class="container">
+            <h3>Cadastro realizado!</h3>
+                <div class="button-container">
+                    <button type="submit"><a href="index.html" style = "text-decoration: none; color: #ffffff">Página Inicial - Sobre nós</button>
+                </div>
+                <div class="button-container">
+                    <button type="submit"><a href="events.html" style = "text-decoration: none; color: #ffffff">Eventos Disponíveis!</a></button>
+                </div>
+            </div>
+            `
+            let user_online = {
+                username: username_id.value,
+                senha: senha_id.value
+            }
+            login_check = user_online; //login_check usado para saber se um usuario esta logado
+            localStorage.setItem('login_check', JSON.stringify(login_check)); //guardando informaçoes do login check
+            localStorage.setItem('lista_users', JSON.stringify(lista_users)); //guardando informaçoes dos voluntarios
+            };
+
+        }
+    ) 
 })
-
-///verificação dos campos de informações
-btn_cadastrar.addEventListener('click', function(event){
-    event.preventDefault();
-    profile_username = verificaUsername();
-    profile_name = verificaName();
-    profile_senha = verificaSenha();
-    profile_regiao = verificaOpcoes(regiao_id, error_msg_regiao);
-    profile_gender = verificaOpcoes(gender_id, error_msg_gender);    
-    profile_email = verificaEmail();
-    profile_celular = verificaCelular();
-    profile_birthday = verificaBirthday();
-    profile_foto = verificaFoto();
-    if(profile_username && profile_name && profile_senha &&
-        profile_regiao && profile_gender && profile_email &&
-        profile_celular && profile_foto
-    ){
-        const new_user = {
-            username: username_id.value,
-            name: name_id.value,
-            senha: senha_id.value,
-            regiao: regiao_id.value,
-            gender: gender_id.value,
-            email: email_id.value,
-            celular: celular_id.value,
-            birthday: birthday_id.value,
-            foto: foto_id.value,
-            profileType: 'voluntario'
-        }
-        lista_users.push(new_user);  //guardou na lista de usuarios
-        let container = document.querySelector('.container')
-        container.innerHTML = ''
-        container.innerHTML = `
-        <div class="container">
-        <h3>Cadastro realizado!</h3>
-            <div class="button-container">
-                <button type="submit"><a href="index.html" style = "text-decoration: none; color: #ffffff">Página Inicial - Sobre nós</button>
-            </div>
-            <div class="button-container">
-                <button type="submit"><a href="events.html" style = "text-decoration: none; color: #ffffff">Eventos Disponíveis!</a></button>
-            </div>
-        </div>
-        `
-        let user_online = {
-            username: username_id.value,
-            senha: senha_id.value
-        }
-        login_check = user_online; //login_check usado para saber se um usuario esta logado
-        localStorage.setItem('login_check', JSON.stringify(login_check)); //guardando informaçoes do login check
-        localStorage.setItem('lista_users', JSON.stringify(lista_users)); //guardando informaçoes dos voluntarios
-        };
-
-    }
- )
-
-

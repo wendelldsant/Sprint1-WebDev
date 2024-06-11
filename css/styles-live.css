@@ -1,0 +1,156 @@
+/* styles-live.css */
+/* Reseta as margens e paddings de todos os elementos e configura o box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Define o estilo básico do corpo da página */
+body {
+    /* Define a imagem de fundo e suas propriedades */
+    background-image: radial-gradient(circle at 85% 1%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 96%,transparent 96%, transparent 100%),
+                      radial-gradient(circle at 14% 15%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 1%,transparent 1%, transparent 100%),
+                      radial-gradient(circle at 60% 90%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 20%,transparent 20%, transparent 100%),
+                      radial-gradient(circle at 79% 7%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 78%,transparent 78%, transparent 100%),
+                      radial-gradient(circle at 55% 65%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 52%,transparent 52%, transparent 100%),
+                      linear-gradient(135deg, rgb(37, 56, 222),rgb(96, 189, 244));
+    background-size: cover; /* Faz com que a imagem cubra toda a área */
+    background-attachment: fixed; /* Faz a imagem de fundo ficar fixa ao rolar a página */
+    background-position: center; /* Centraliza a imagem de fundo */
+    display: flex; /* Define o layout flex para o corpo */
+    flex-direction: column; /* Define a direção dos itens flexíveis como coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    min-height: 100vh; /* Define a altura mínima como 100% da altura da tela */
+    padding-top: 60px; /* Espaço para o cabeçalho fixo */
+    color: white; /* Define a cor do texto como branco */
+}
+
+/* Estilo do cabeçalho */
+header {
+    position: fixed; /* Faz o cabeçalho fixo no topo da página */
+    top: 0; /* Alinha o cabeçalho ao topo */
+    width: 100%; /* Faz o cabeçalho ocupar 100% da largura da tela */
+    display: flex; /* Define o layout flex para o cabeçalho */
+    justify-content: space-between; /* Distribui o espaço uniformemente entre os itens */
+    align-items: center; /* Alinha os itens no centro verticalmente */
+    padding: 20px; /* Adiciona espaçamento interno ao cabeçalho */
+    background-color: rgba(0, 0, 0, 0.7); /* Define a cor de fundo com transparência */
+    color: white; /* Define a cor do texto como branco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao cabeçalho */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+/* Estilo do título no cabeçalho */
+header h1 {
+    font-size: 24px; /* Define o tamanho da fonte do título */
+}
+
+/* Estilo da lista de navegação */
+nav ul {
+    display: flex; /* Define o layout flex para a lista */
+    list-style: none; /* Remove os marcadores da lista */
+    margin: 0; /* Remove a margem da lista */
+    padding: 0; /* Remove o padding da lista */
+}
+
+/* Estilo dos itens da lista de navegação */
+nav ul li {
+    margin-right: 2rem; /* Adiciona espaçamento à direita dos itens */
+}
+
+/* Estilo dos links de navegação */
+nav ul li a {
+    color: white; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove a decoração (sublinhado) dos links */
+    font-weight: bold; /* Define a fonte dos links como negrito */
+}
+
+/* Estilo ao passar o mouse sobre os links de navegação */
+nav ul li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado aos links ao passar o mouse */
+}
+
+/* Estilo do container principal */
+.container {
+    display: flex; /* Define o layout flex para o container */
+    flex-direction: row; /* Define a direção dos itens flexíveis como linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: flex-start; /* Alinha os itens ao topo verticalmente */
+    background-color: rgba(255, 255, 255, 0.9); /* Define a cor de fundo com transparência */
+    padding: 20px; /* Adiciona espaçamento interno ao container */
+    border-radius: 15px; /* Adiciona cantos arredondados ao container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao container */
+    width: 90%; /* Define a largura como 90% do container */
+    max-width: 1200px; /* Define a largura máxima como 1200px */
+    margin-top: 20px; /* Adiciona margem superior ao container */
+    color: #343a40; /* Define a cor do texto */
+}
+
+/* Estilo da seção do vídeo */
+.video-section {
+    flex: 3; /* Define o tamanho flexível da seção */
+    margin-right: 20px; /* Adiciona margem à direita */
+}
+
+/* Estilo do iframe do vídeo */
+#live-video {
+    width: 100%; /* Define a largura do vídeo como 100% da seção */
+    height: 500px; /* Define a altura do vídeo */
+    border-radius: 8px; /* Adiciona cantos arredondados ao vídeo */
+}
+
+/* Estilo da seção do chat */
+.chat-section {
+    flex: 1; /* Define o tamanho flexível da seção */
+    display: flex; /* Define o layout flex para a seção */
+    flex-direction: column; /* Define a direção dos itens flexíveis como coluna */
+}
+
+/* Estilo da caixa do chat */
+.chat-box {
+    display: flex; /* Define o layout flex para a caixa */
+    flex-direction: column; /* Define a direção dos itens flexíveis como coluna */
+    background-color: #f8f9fa; /* Define a cor de fundo da caixa */
+    border-radius: 8px; /* Adiciona cantos arredondados à caixa */
+    padding: 10px; /* Adiciona espaçamento interno à caixa */
+    height: 500px; /* Define a altura da caixa */
+}
+
+/* Estilo da área de mensagens do chat */
+#chat-messages {
+    flex: 1; /* Define o tamanho flexível da área de mensagens */
+    overflow-y: auto; /* Adiciona rolagem vertical */
+    margin-bottom: 10px; /* Adiciona margem inferior */
+    background-color: #ffffff; /* Define a cor de fundo da área de mensagens */
+    border-radius: 8px; /* Adiciona cantos arredondados à área de mensagens */
+    padding: 10px; /* Adiciona espaçamento interno à área de mensagens */
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra interna à área de mensagens */
+}
+
+/* Estilo do formulário do chat */
+#chat-form {
+    display: flex; /* Define o layout flex para o formulário */
+}
+
+/* Estilo do campo de entrada de texto do chat */
+#chat-input {
+    flex: 1; /* Define o tamanho flexível do campo */
+    padding: 10px; /* Adiciona espaçamento interno ao campo */
+    border: 1px solid #ced4da; /* Define a borda do campo */
+    border-radius: 8px 0 0 8px; /* Adiciona cantos arredondados ao campo */
+    font-size: 16px; /* Define o tamanho da fonte do campo */
+}
+
+/* Estilo do botão de envio do chat */
+#chat-send {
+    padding: 10px 20px; /* Adiciona espaçamento interno ao botão */
+    background-color: #678d88e0; /* Define a cor de fundo do botão */
+    color: #ffffff; /* Define a cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    border-radius: 0 8px 8px 0; /* Adiciona cantos arredondados ao botão */
+    cursor: pointer; /* Muda o cursor para um ponteiro ao passar sobre o botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    transition: background-color 0.3s, transform 0.2s; /* Adiciona transições para a cor de fundo e a transformação */
+}
