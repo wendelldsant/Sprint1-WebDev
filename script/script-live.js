@@ -24,9 +24,11 @@ function readMessages(){
     if (listaLiveMessage.length!=0){
         listaLiveMessage.forEach(element => {
             const message = document.createElement('div');
+            message.className = 'chat-message'
             message.id = `message${element.idMessage}`
             message.innerHTML = `
                 <p> ${element.username}: ${element.message}</p>
+                <button class="delete-button" id="delete${element.idMessage}"><i class="fas fa-trash"></i></button>
             `
             campoMessages.append(message)
         });
@@ -36,6 +38,7 @@ function readMessages(){
     }
 
 }
+
 
 
 btnEnviar.addEventListener('click', function(event){

@@ -129,6 +129,30 @@ nav ul li a:hover {
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra interna à área de mensagens */
 }
 
+/* Estilo das mensagens individuais no chat */
+.chat-message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilo do botão de deletar */
+.delete-button {
+    background: none;
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+}
+
+.delete-button i {
+    pointer-events: none;
+}
+
 /* Estilo do formulário do chat */
 #chat-form {
     display: flex; /* Define o layout flex para o formulário */
