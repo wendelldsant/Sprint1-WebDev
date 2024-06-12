@@ -56,7 +56,7 @@ window.onload = function(event) {
             <p>${user_dados.celular}</p>
         </div>
         <div class="profile-data">
-            <label>Região:</label>
+            <label>Cidade:</label>
             <p>${user_dados.regiao}</p>
         </div>
         <div class="button-container">
