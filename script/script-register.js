@@ -269,16 +269,19 @@ const btnVoltar = document.getElementById('btn-voltar');
 btnlogin_in.addEventListener('click', function(event){
     event.preventDefault();
     register_form.style.display = 'block';
-    btnVoltar.className = 'nothidden';
     let lista_block = [campo2,campo3,campo4,campo5,campo6,campo8,campo9,campo10];
     lista_block.forEach(campo =>{
         campo.style.display = 'none';
     })
     btncadastrar_se.style.display = 'none'
-    document.getElementById("buttons").innerHTML = ''
-    document.getElementById("buttons").innerHTML = `
+    document.querySelector('h3').innerHTML = 'Faça seu Login'
+    document.querySelector(".buttons").innerHTML = ''
+    document.querySelector(".buttons").innerHTML = `
     <div class="button-container">
         <button type="submit" id="btn-entrar">Entrar</button>
+    </div>
+    <div class="button-container">
+        <button type="submit" id="btn-voltar" class="nothidden" onclick="voltarLoginPage()">Voltar</button>
     </div>
     `
     document.getElementById("btn-entrar").addEventListener('click', function(event){
@@ -291,6 +294,7 @@ btnlogin_in.addEventListener('click', function(event){
         let senhaXuser = verificarSenhaxLogin()
         if(senhaXuser!=''){
             if(senhaXuser===senha_id.value){
+                console.log('usuario aceito')
                 let container = document.querySelector('.container')
                 container.innerHTML = ''
                 container.innerHTML = `
@@ -371,10 +375,7 @@ btncadastrar_se.addEventListener('click', function(event){
             <div class="container">
             <h3>Cadastro realizado!</h3>
                 <div class="button-container">
-                    <button type="submit"><a href="index.html" style = "text-decoration: none; color: #ffffff">Página Inicial - Sobre nós</button>
-                </div>
-                <div class="button-container">
-                    <button type="submit"><a href="events.html" style = "text-decoration: none; color: #ffffff">Eventos Disponíveis!</a></button>
+                    <button type="submit"><a href="live-page.html" style = "text-decoration: none; color: #ffffff">Eventos Disponíveis!</a></button>
                 </div>
             </div>
             `
