@@ -1,9 +1,14 @@
 const listaUser = JSON.parse(localStorage.getItem('users'));
-const loginCheck = JSON.parse(localStorage.getItem('loginCheck'));
-userTeste = 'wendelldsant';
-listaLiveMessage = [];
+const loginCheck = JSON.parse(localStorage.getItem('login_check'));
+const userTeste = loginCheck.username;
+const listaLiveMessage = JSON.parse(localStorage.getItem('liveMessages'));
 const campoMessages = document.querySelector('#chat-messages');
 const btnEnviar = document.querySelector('#chat-send');
+
+window.onload = function(event) {
+    event.preventDefault();
+    readMessages();
+}
 // #CREATE
 
 function criaMensagem(dados){
@@ -13,6 +18,7 @@ function criaMensagem(dados){
         idMessage: listaLiveMessage.length+1
     }
     listaLiveMessage.push(newMessage);
+    saveMessages();
     readMessages();
 }
 
@@ -40,6 +46,9 @@ function readMessages(){
 }
 
 
+function saveMessages() {
+    localStorage.setItem('liveMessages', JSON.stringify(listaLiveMessage));
+}
 
 btnEnviar.addEventListener('click', function(event){
     event.preventDefault();
@@ -48,3 +57,4 @@ btnEnviar.addEventListener('click', function(event){
         username: userTeste
     });
 })
+
