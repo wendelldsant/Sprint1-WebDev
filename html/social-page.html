@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media</title>
+    <link rel="stylesheet" href="/css/styles-social.css">
+</head>
+<body>
+    <header>
+        <h1>Rede Social</h1>
+        <nav>
+            <ul id="secoes">
+                <li><a href="live-page.html">Transmissões ao Vivo</a></li>
+                <li><a href="register-page.html">Cadastre-se</a></li>
+                <li><a href="profile-page.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container" id="container">
+        <h3>Criar Novo Post</h3>
+        <form id="new-post-form">
+            <div class="form-group">
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Foto:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="button-container">
+                <button type="submit">Postar</button>
+            </div>
+        </form>
+        <div id="posts">
+            <h3>Publicações</h3>
+            <div class="post">
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo distinctio dignissimos officiis officia aspernatur placeat maxime tempora quod cupiditate iusto?</p>
+                    <img src="https://super.abril.com.br/wp-content/uploads/2023/02/SI_448_Fo%CC%81rmula-E_site.png?w=720&h=440&crop=1" alt="Foto do Post">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/script/script-social.js"></script>
+</body>
+</html>
