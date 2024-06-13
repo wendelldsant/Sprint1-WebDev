@@ -7,8 +7,19 @@ const btnEnviar = document.querySelector('#chat-send');
 
 window.onload = function(event) {
     event.preventDefault();
+    console.log(loginCheck);
+    // preVerify();
     readMessages();
 }
+
+// function preVerify(){
+//     if(loginCheck===null || loginCheck==='' || loginCheck === undefined){
+//         alert('Faça seu login para ter acesso aos eventos ao vivo!')
+//         return true;
+//     }
+//     return false;
+// }
+
 // #CREATE
 
 function criaMensagem(dados){
@@ -34,10 +45,10 @@ function readMessages(){
                 message.className = 'chat-message'
                 message.id = `message${element.idMessage}`
                 message.innerHTML = `
-                    <p> ${element.username}: ${element.message}</p>
+                    <p style = "color: green; font-size: 13px"> ${element.username}: ${element.message}</p>
                     <button class="delete-button" id="delete${element.idMessage}" onclick = "deleteMessage(${element.idMessage})"><i class="fas fa-trash"></i></button>
                 `
-                campoMessages.append(message)
+                campoMessages.append(message);
             }
             else{
                 const message = document.createElement('div');
@@ -52,7 +63,9 @@ function readMessages(){
         });
     }
     else{
-        console.log('null')
+        campoMessages.innerHTML = `
+        <p style = "color:gray">Seja o primeiro a comentar!</p>
+        `
     }
 
 }
