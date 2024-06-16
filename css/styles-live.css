@@ -10,12 +10,7 @@
 /* Define o estilo básico do corpo da página */
 body {
     /* Define a imagem de fundo e suas propriedades */
-    background-image: radial-gradient(circle at 85% 1%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 96%,transparent 96%, transparent 100%),
-                      radial-gradient(circle at 14% 15%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 1%,transparent 1%, transparent 100%),
-                      radial-gradient(circle at 60% 90%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 20%,transparent 20%, transparent 100%),
-                      radial-gradient(circle at 79% 7%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 78%,transparent 78%, transparent 100%),
-                      radial-gradient(circle at 55% 65%, hsla(190,0%,93%,0.05) 0%, hsla(190,0%,93%,0.05) 52%,transparent 52%, transparent 100%),
-                      linear-gradient(135deg, rgb(37, 56, 222),rgb(96, 189, 244));
+    background-image: linear-gradient(112.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(157.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(67.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(90deg, rgb(65, 48, 207),rgb(202, 204, 121)); background-blend-mode:overlay,overlay,overlay,normal;
     background-size: cover; /* Faz com que a imagem cubra toda a área */
     background-attachment: fixed; /* Faz a imagem de fundo ficar fixa ao rolar a página */
     background-position: center; /* Centraliza a imagem de fundo */
