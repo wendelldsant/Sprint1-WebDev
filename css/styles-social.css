@@ -138,3 +138,16 @@ button:active {
     border-radius: 10px;
     margin-top: 10px;
 }
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+}
+
+.delete-button i {
+    pointer-events: none;
+}
