@@ -1,25 +1,24 @@
 const listaUser = JSON.parse(localStorage.getItem('users'));
 const loginCheck = JSON.parse(localStorage.getItem('login_check'));
-const userOnline = loginCheck.username;
+const userOnline = loginCheck ? loginCheck.username : null;
 let listaLiveMessage = JSON.parse(localStorage.getItem('liveMessages')) || [];
 const campoMessages = document.querySelector('#chat-messages');
 const btnEnviar = document.querySelector('#chat-send');
 
-window.onload = function(event) {
-    event.preventDefault();
-    console.log(loginCheck);
-    // preVerify();
+window.onload = function() {
+    verifyUser();
     readMessages();
 }
 
-// function preVerify(){
-//     if(loginCheck===null || loginCheck==='' || loginCheck === undefined){
-//         alert('Faça seu login para ter acesso aos eventos ao vivo!')
-//         return true;
-//     }
-//     return false;
-// }
-
+function verifyUser() {
+    if (!userOnline) {
+        let redeSocial = document.getElementById('chat-form');
+        redeSocial.innerHTML = ''
+        redeSocial.innerHTML = `
+        <h4>Faça login para enviar mensagens!</h4>
+        `
+    }
+}
 // #CREATE
 
 function criaMensagem(dados){
@@ -45,7 +44,7 @@ function readMessages(){
                 message.className = 'chat-message'
                 message.id = `message${element.idMessage}`
                 message.innerHTML = `
-                    <p style = "color: green; font-size: 13px"> ${element.username}: ${element.message}</p>
+                    <p style = "color: green"> ${element.username}: ${element.message}</p>
                     <button class="delete-button" id="delete${element.idMessage}" onclick = "deleteMessage(${element.idMessage})"><i class="fas fa-trash"></i></button>
                 `
                 campoMessages.append(message);
