@@ -1,7 +1,7 @@
 const listaUser = JSON.parse(localStorage.getItem('users'));
 const loginCheck = JSON.parse(localStorage.getItem('login_check'));
 const userOnline = loginCheck.username;
-let listaLiveMessage = JSON.parse(localStorage.getItem('liveMessages'));
+let listaLiveMessage = JSON.parse(localStorage.getItem('liveMessages')) || [];
 const campoMessages = document.querySelector('#chat-messages');
 const btnEnviar = document.querySelector('#chat-send');
 
