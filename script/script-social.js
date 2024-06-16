@@ -43,7 +43,7 @@ function readPost() {
                 <div class="post-content">
                     <p>${element.username}: ${element.message}</p>
                     <img src="${element.foto}" alt="Foto do Post">
-                    ${element.username === userOnline ? `<button class="delete-button" id="delete${element.idPost}" onclick = "deleteMessage(${element.idPost})"><i class="fas fa-trash"></i></button>` : ''}
+                    ${element.username === userOnline ? `<button class="delete-button" id="delete${element.idPost}" onclick = "deleteMessage(${element.idPost})">Delete Post <i class="fas fa-trash"></i></button>` : ''}
                 </div>
             `;
             feed.append(post);
