@@ -77,7 +77,7 @@ btnCriaPost.addEventListener('click', function(event) {
             <textarea id="message" name="message" rows="6" required></textarea>
         </div>
         <div class="form-group">
-            <label for="photo">Foto:</label>
+            <label for="photo">Foto (URL):</label>
             <input type="url" id="photo" name="profile-pic">
         </div>
         <div class="button-container">
