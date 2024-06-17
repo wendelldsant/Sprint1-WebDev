@@ -301,7 +301,7 @@ btnlogin_in.addEventListener('click', function(event){
                 <div class="container">
                 <h3>Login realizado!</h3>
                     <div class="button-container">
-                        <button type="submit"><a href="index.html" style = "text-decoration: none; color: #ffffff">Página Inicial - Sobre nós</button>
+                        <button type="submit"><a href="live-page.html" style = "text-decoration: none; color: #ffffff">Evento ao Vivo!</button>
                     </div>
                 `
                 let user_online = {
@@ -375,7 +375,7 @@ btncadastrar_se.addEventListener('click', function(event){
             <div class="container">
             <h3>Cadastro realizado!</h3>
                 <div class="button-container">
-                    <button type="submit"><a href="live-page.html" style = "text-decoration: none; color: #ffffff">Eventos Disponíveis!</a></button>
+                    <button type="submit"><a href="live-page.html" style = "text-decoration: none; color: #ffffff">Acompanhe as transmissões!</a></button>
                 </div>
             </div>
             `
