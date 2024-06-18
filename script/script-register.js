@@ -232,7 +232,7 @@ function verificaFoto(){
     }
 }
 
-//funcao para verificar se o login é de voluntario. pega informações do user e vefica na lista voluntarios
+//funcao para verificar se o login existe na lista de usuarios
 function verificaLoginExistente(){
     return lista_users.some(user => user.username === username_id.value);
 }
@@ -385,7 +385,7 @@ btncadastrar_se.addEventListener('click', function(event){
             }
             login_check = user_online; //login_check usado para saber se um usuario esta logado
             localStorage.setItem('login_check', JSON.stringify(login_check)); //guardando informaçoes do login check
-            localStorage.setItem('lista_users', JSON.stringify(lista_users)); //guardando informaçoes dos voluntarios
+            localStorage.setItem('lista_users', JSON.stringify(lista_users)); //guardando informaçoes dos usuarios
             };
 
         }

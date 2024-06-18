@@ -4,7 +4,7 @@ const lista_users = JSON.parse(localStorage.getItem('lista_users'));
 var login_check = JSON.parse(localStorage.getItem('login_check'));
 let userType = '';
 
-//função para veficiar qual o tipo de usuario e qual usuario esta logado. Também verifica se não foi logado
+//função para verificar se o Login foi feito
 function verifyUser(){
     let user_dados = ''
     if (lista_users) {
