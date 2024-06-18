@@ -1,4 +1,4 @@
-############################################ ENTREGA SPRINT 1 WEBDEV -- CHALLENGE TECH MAHINDRA ##################################################
+ENTREGA SPRINT 1 WEBDEV -- CHALLENGE TECH MAHINDRA
 
 Propósito do Projeto: como forma de avaliação, a Faculdade de Informática e Administração Paulista (FIAP), promove a elaboração de um projeto anual (challenge) com separado em entregas semestrais (Sprint 1 e 2). Esse repósito contém o script relacionado a primeira Sprint, com foco na disciplina de Web Development, onde são aplicados conceitos fundamentais na elaboração de projetos Web a partir de JavaScript. Esse projeto tem o foco principal no desenvovilmento dos fundamentos de JavaScript, que foi altamente desenvolvido ao longo do semestre.
 
